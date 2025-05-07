@@ -1,27 +1,39 @@
-Email Agent
-Email Agent is an intelligent assistant designed to handle incoming email messages by understanding the content and responding with appropriate, context-aware replies. It leverages OpenAI's function calling and message history management to maintain conversation coherence.
+# 🤖 Email Agent
 
-Features
-Automatically understands and replies to email content.
+**Email Agent**, gelen e-postaları yönetmek ve yanıtlamak için tasarlanmış akıllı bir asistandır. OpenAI'nin GPT-4o modeli kullanılarak geliştirilen bu ajan, profesyonel HTML formatında e-postalar oluşturur ve imza olarak her mesajın sonuna “Nate” ismini ekler.
 
-Uses OpenAI's function-calling system for intelligent decisions.
+## 📌 Özellikler
 
-Maintains context across multiple messages.
+- Gelen e-postaları analiz eder ve otomatik olarak yanıt oluşturur.
+- E-posta gönderme, taslak oluşturma, yanıtlama, etiketleme ve okunmamış olarak işaretleme işlemlerini destekler.
+- Gmail API ile entegredir.
+- n8n platformu üzerinden sürükle-bırak ile görsel akış desteği.
 
-Designed for integration into broader email workflows.
+## ⚙️ Kullanılan Teknolojiler
 
-How It Works
-The agent uses the following tools and memory strategies:
+- [n8n](https://n8n.io/) (otomasyon platformu)
+- OpenAI GPT-4o
+- Gmail OAuth2 entegrasyonu
+- Langchain agent + tool sistemi
 
-Function Calls: Defines actions like email_reply that return structured replies.
+## 🧠 Agent Yapılandırması
 
-Memory: Maintains recent message history using a chat_history memory type with message_window for limited context retention.
+- **Model:** GPT-4o
+- **Rol Tanımı:** E-posta yönetim asistanı
+- **Prompt (Sistem Mesajı):**
+  - Gelen tüm e-postalar profesyonel HTML formatında yanıtlanmalıdır.
+  - Mesajlar “Nate” adıyla imzalanmalıdır.
+  - Ajan; gönderme, yanıt, taslak oluşturma, etiketleme ve okunmamış yapma gibi işlemler için uygun araçları kullanmalıdır.
+  
+## 🛠️ Kullanılabilir Araçlar
 
-Prompting: The agent is instructed to always reply as if responding to an email, using professional tone and formatting.
+| Araç | Açıklama |
+|------|----------|
+| `Send Email` | Yeni e-posta gönderir |
+| `Create Draft` | Taslak oluşturur |
+| `Get Emails` | Gelen kutusundaki e-postaları getirir |
+| `Get Labels` | Gmail etiketlerini listeler |
+| `Label Email` | Belirli bir e-postaya etiket uygular |
+| `Mark Unread` | E-postayı okunmamış olarak işaretler |
+| `Email Reply` | Gelen bir e-postaya yanıt verir |
 
-Technologies Used
-OpenAI API (function calling)
-
-JSON-based agent configuration
-
-Custom prompt engineering
